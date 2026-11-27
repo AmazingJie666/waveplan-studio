@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-draft: #F6F6F3;
+    --bg-panel: #FFFFFF;
+    --ink-primary: #18191B;
+    --ink-secondary: #5C6066;
+    --ink-muted: #9398A1;
+    --border-hairline: #E3E3DF;
+    --braun-orange: #EA580C;
+    --signal-excellent: #10B981;
+    --signal-good: #84CC16;
+    --signal-fair: #F59E0B;
+    --signal-dead: #EF4444;
+  }
+
+  [data-theme="dark"] {
+    --bg-draft: #111317;
+    --bg-panel: #191C22;
+    --ink-primary: #F1F5F9;
+    --ink-secondary: #94A3B8;
+    --ink-muted: #64748B;
+    --border-hairline: #2A2F3A;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: var(--bg-draft);
+    color: var(--ink-primary);
+    overflow: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Global Dark Mode surface overrides for clean Braun Dark Instrument aesthetics */
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] .bg-white\/95 {
+  background-color: #191C22 !important;
+  color: #F1F5F9;
+}
+[data-theme="dark"] .bg-\[\#F6F6F3\],
+[data-theme="dark"] .bg-\[\#FAFAF8\],
+[data-theme="dark"] .bg-\[\#F7F7F4\],
+[data-theme="dark"] .bg-\[\#F8F8F5\],
+[data-theme="dark"] .bg-\[\#F4F4F0\],
+[data-theme="dark"] .bg-\[\#F3F3EE\],
+[data-theme="dark"] .bg-\[\#F1F1EC\],
+[data-theme="dark"] .bg-\[\#ECECE7\] {
+  background-color: #22262E !important;
+}
+[data-theme="dark"] .border-\[\#E3E3DF\],
+[data-theme="dark"] .border-\[\#ECECE7\],
+[data-theme="dark"] .border-\[\#DCDCD6\],
+[data-theme="dark"] .border-\[\#D4D4CE\],
+[data-theme="dark"] .border-\[\#D5D5CE\] {
+  border-color: #2E3440 !important;
+}
+[data-theme="dark"] .text-\[\#18191B\] {
+  color: #F1F5F9 !important;
+}
+[data-theme="dark"] .text-\[\#5C6066\],
+[data-theme="dark"] .text-\[\#686D75\],
+[data-theme="dark"] .text-\[\#52565E\],
+[data-theme="dark"] .text-\[\#4A4E56\],
+[data-theme="dark"] .text-\[\#3F434A\],
+[data-theme="dark"] .text-\[\#33363C\] {
+  color: #9CA3AF !important;
+}
+[data-theme="dark"] .text-\[\#7A7F87\],
+[data-theme="dark"] .text-\[\#9398A1\] {
+  color: #6B7280 !important;
+}
+[data-theme="dark"] select,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"] {
+  background-color: #22262E;
+  color: #F1F5F9;
+  border-color: #363C48;
+}
+
+/* Keep printable A4 sheet crisp white on paper even in Dark Mode */
+@media print {
+  body {
+    overflow: visible !important;
+    background: #FFFFFF !important;
+    color: #18191B !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-sheet,
+  .print-only-sheet * {
+    background-color: #FFFFFF !important;
+    color: #18191B !important;
+  }
+  .print-only-sheet {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4D4CE;
+  border-radius: 999px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
